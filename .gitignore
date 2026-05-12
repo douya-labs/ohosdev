@@ -4,3 +4,6 @@ dist
 .env
 .env.local
 .DS_Store
+
+# References cache (auto-pulled from douya-labs/harmony-app-dev by scripts/sync-references.mjs)
+references-cache/

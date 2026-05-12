@@ -8,7 +8,7 @@
     "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "sync:refs": "node ../scripts/sync-references.mjs"
+    "sync:refs": "node scripts/sync-references.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.0",
