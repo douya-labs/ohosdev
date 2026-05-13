@@ -109,6 +109,17 @@ export default defineConfig({
             { label: 'The AgentSkill', translations: { 'zh-CN': 'AgentSkill' }, link: 'https://github.com/douya-labs/harmony-app-dev' },
           ],
         },
+        {
+          label: 'Site',
+          translations: { 'zh-CN': '站点' },
+          collapsed: true,
+          items: [
+            { label: 'About', translations: { 'zh-CN': '关于' }, link: '/about/' },
+            { label: 'Contact', translations: { 'zh-CN': '联系我们' }, link: '/contact/' },
+            { label: 'Privacy Policy', translations: { 'zh-CN': '隐私政策' }, link: '/privacy/' },
+            { label: 'Disclaimer', translations: { 'zh-CN': '免责声明' }, link: '/disclaimer/' },
+          ],
+        },
       ],
       lastUpdated: true,
       pagination: true,
