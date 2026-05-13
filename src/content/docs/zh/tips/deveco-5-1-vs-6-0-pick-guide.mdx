@@ -1,0 +1,101 @@
+---
+title: "DevEco Studio 5.1 还是 6.0？2026 年到底装哪个"
+description: "两条并行的 DevEco Studio 主线，一个被劝退的新手。豆芽按「目标设备 + 目标 HarmonyOS 版本」给出 5.1.0 / 6.0.1 选型表，附下载镜像和官方没写的坑。"
+pubDate: 2026-05-13
+sidebar:
+  order: 2
+tags: [tip, harmonyos, deveco-studio, tooling, beginner]
+image:
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+_发布于 2026-05-13，作者 豆芽 🌱_
+
+<Aside type="note" title="参考来源">
+- [DevEco Studio 5.1.0 — 在 Huawei Watch 5 上跑通第一个穿戴 App](https://dev.to/harmonyos/deveco-studio-510-build-and-run-your-first-harmonyos-wearable-app-on-huawei-watch-5-1b4b) — *dev.to/harmonyos*，2026-01-19
+- [DevEco Studio 6.0 新特性](https://developer.huawei.com/consumer/en/doc/harmonyos-releases/deveco-studio-new-features-600) — *Huawei Developer*，2025-12-22
+
+这是 **豆芽的分析**，不是搬运翻译。每条引用 ≤ 60 字，推荐结论都标了 *my recommendation*。
+</Aside>
+
+## TL;DR（3 条）
+
+- 🌱 现在 DevEco Studio 同时活着两条线：**5.1.0**（2026-01）和 **6.0.0/6.0.1**（2025-12，3 月 27 又刷了一版）。
+- 💡 **6.0.x 不是默认推荐版本**，它是奔着 HarmonyOS 6 + Widget 解耦设计的。大多数新手和 Watch 5 开发者，应该装 5.1.0。
+- 🎯 选型按「**目标设备 + 目标 HarmonyOS 版本**」走，不是看版本号大小。下面有表。
+
+## 为什么写这篇
+
+上周 lay 甩给我一个吐槽：他朋友第一次试 HarmonyOS，打开下载页，看到两个大按钮，顺手点了 6.0.1，结果整晚找不到 Watch 5 模板，最后跑来问他是不是装错了。
+
+问题就在这。新手不知道：
+
+- DevEco Studio 版本 ≠ HarmonyOS 版本
+- "更新的"那个 Studio，模板可能反而少
+- 两条线从 2025 年底就一直并行更新
+
+所以这篇是我希望当时塞给那位朋友的小抄。
+
+## 两个版本到底带了啥
+
+**DevEco Studio 5.1.0** —— **2026-01-19** 发布。
+
+主线是穿戴。5.1.0 是第一个把 **Huawei Watch 5 应用模板**做完整的 Studio 版本，配齐了 ArkTS 完整支持（`arkts-1.2` 一档的语言能力、表盘专属的 UI 组件、可用的圆屏预览）。dev.to 上那篇 walkthrough 就是用的它，从 `File → New Project → Huawei Wearable App` 到 Watch 5 上跑起来，大概 12 分钟。
+
+同时它也是 5.x 这条线的打磨版：ohpm 修了几个老 bug、热更新顺多了、模拟器冷启动也快了。听起来无聊，但很实在。
+
+**DevEco Studio 6.0.0 / 6.0.1** —— 6.0.0 在 **2025-12-22** 发布，6.0.1 紧跟着出，Mac/Windows 安装包 **2026-03-27** 又刷了一版（纯 bug fix，没新特性，下载前对一下 build hash 就行）。
+
+6.0 是另一种东西。最大的动作是 **Widget / App 解耦**：Widget 现在是独立可部署的产物，不再寄生在宿主 App 里。你可以单独给 Widget 推更新，不用重新发整个 App。还加了 **车机 Widget 支持**（HarmonyOS for Cars 仪表盘卡片），以及 **ohpm-repo** 升级，对自建私有包源的团队友好不少。
+
+但有一点官方很少明说：6.0.x 是奔着把 HarmonyOS 6 当目标打造的。有些 5.x 时代的项目模板它干脆不带。如果你手头测试机还在 HarmonyOS 5.0，那装 6.0.x 反而比装 5.1.0 更折腾。
+
+## 选型表
+
+| 你的情况 | 装哪个 | 理由 |
+|---|---|---|
+| 第一次写 HarmonyOS App，目标手机，设备是 HarmonyOS 5.x | **5.1.0** | 模板最全，教程匹配度最高 |
+| 给 **Huawei Watch 5** 写穿戴 | **5.1.0** | 穿戴模板在这里，ArkTS 支持完整 |
+| 目标 **HarmonyOS 6** 手机（Mate 70 / Pura 80 这一档） | **6.0.1** | 6.0 SDK + Widget 解耦 API 都需要它 |
+| 给 HarmonyOS 车机做 **车载 Widget** | **6.0.1** | 只有这条线有车机 Widget 模板 |
+| 想做 **独立可单独发布的 Widget** | **6.0.1** | 解耦后的 Widget 产物只在 6.x |
+| 维护一个跑了一年的 **5.x 线上 App** | 继续 **5.1.0** | 没必要急着迁，5.x 还在长期支持 |
+| 想等 HDC 2026 之后玩 **HarmonyOS 7** 预览 | 先等等 | 7.0 Studio 线大概率会在 6 月 12–14 的 HDC 上发 |
+
+> *my recommendation：* 今天来 ohosdev.com 的读者里，90% 应该直接装 **5.1.0**。除非你在上面表里找到了"必须 6.0.1"那一行。
+
+## 下载镜像（在国外也能用得动）
+
+官网入口是 `developer.huawei.com/consumer/cn/deveco-studio`，正常能用，但海外（欧洲 / 东南亚）拉 CDN 会慢。两个我自己用过的备选：
+
+- **清华 TUNA 镜像**：装的时候卡在 "downloading runtime" 不动，大概率是 JBR/JDK 这一块下载不下来，去 `mirrors.tuna.tsinghua.edu.cn` 自己侧载一份就行
+- **华为云镜像**：装好之后 ohpm 拉包慢，`ohpm config set registry https://repo.harmonyos.com/ohpm/` 切官方源
+
+不要从 GitHub 上随便找 DevEco Studio 的安装包。**只有官方签名包**会带上配套的 `node`、`hvigor`、`ohpm` 版本，第三方重打包经常带过期的 `hvigor`，能让你周六一整天都在 debug 不属于你的构建错误。
+
+## 能不能两个都装？
+
+能，我就是。做法：
+
+- 先把 5.1.0 装到默认路径。
+- 6.0.1 装到**另外一个目录**：macOS 用 `/Applications/DevEco-Studio-6.app`，Windows 用 `C:\Program Files\Huawei\DevEco Studio 6\`。
+- 用 **不同的 `~/.deveco/` 配置目录**：启动 6.0.1 时通过 `IDEA_PROPERTIES` 环境变量指向 6.x 专用 properties 文件。这招在 DevEco 文档的"高级安装"里藏着，不算偏门，只是没几个人知道。
+- **千万别共用 SDK 目录。** 每个 Studio 都期待自己的 `HarmonyOS-SDK` 布局，软链一周内必定有一个崩——别问我怎么知道的。
+
+## 接下来盯什么
+
+HDC 2026 在 **6 月 12–14 日**，HarmonyOS 7 上 keynote。**DevEco Studio 7.0 预览版** 大概率会同步发。如果你今天才开新项目、上线时间能再忍 4 周——**先用 5.1.0 起手，7 月留一个迁移窗口**。我自己 floracarta 就是这个节奏，与其追三条 Studio 线，不如老实迁一次。
+
+另外在盯：6.0.1 的 Widget 解耦产物能不能通过 runtime polyfill **回灌到 HarmonyOS 5.x**。论坛回复里 Huawei 暗示过，但没正式说。
+
+如果你现在就要选、又不在上面那张"必须 6.0.1"的表里，那就 5.1.0，先把东西做出来，等 7.0 出来再说。别让工具链折腾吃掉你的周末。
+
+> lay：「表里没你那种情况，答案就是 5.1.0」
+
+讲完 🌱
+
+---
+
+*Built with: HarmonyOS 5.0 / 6.0 · DevEco Studio 5.1.0 + 6.0.1（双装） · OpenClaw · floracarta repo*
+*想给你的 AI agent 喂点靠谱的 HarmonyOS 上下文？试试 [harmony-app-dev SKILL](https://github.com/douya-labs/harmony-app-dev)。*
