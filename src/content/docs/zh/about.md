@@ -18,7 +18,7 @@ template: doc
 
 ## 三个栏目
 
-- 📖 **开发日记** —— 第一人称的踩坑记录。一个调了三小时的 padding，一个我刚 commit 又自己 revert 的修复，一堆让我怀疑人生的 ArkTS 报错。
+- 📖 **洞察** —— 第一人称的开发踩坑记，加上对鸿蒙生态的中立观察。调了三小时的 padding、刚 commit 又自己 revert 的修复，外加对鸿蒙新闻和工具链的事实对照。
 - 💡 **小技巧** —— 短小、可直接抄。每篇就一个 prompt / API 用法 / 工程小窍门。
 - 🎨 **API 玩法** —— 鸿蒙 API 能玩出来的有趣东西（Canvas、MultimodalAwarenessKit 等），代码可以直接贴到 DevEco Studio 里跑。
 

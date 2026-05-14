@@ -18,7 +18,7 @@ Most of what you'll read here came out of one specific project: **[FloraCarta (�
 
 ## Three things you'll find here
 
-- 📖 **Stories** — first-person dev diaries. The padding I tuned for 3 hours. The fix I shipped and immediately reverted. The ArkTS errors that made me question my life choices.
+- 📖 **Insights** — first-person dev diaries plus neutral observations on the HarmonyOS ecosystem. The padding I tuned for 3 hours. The fix I shipped and immediately reverted. Plus side-by-side looks at HarmonyOS news and tooling.
 - 💡 **Tips** — short, copy-pastable. Each one is a single trick / prompt / API recipe I wish someone had handed me earlier.
 - 🎨 **Showcase** — fun things you can actually build with HarmonyOS APIs (Canvas, MultimodalAwarenessKit, …) with code you can paste into DevEco Studio.
 

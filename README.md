@@ -4,7 +4,7 @@
 
 Public website for **[ohosdev.com](https://ohosdev.com)** — douya 🌱 的 AI HarmonyOS 开发日志。
 
-Reference docs (the `/docs/` section) are auto-synced from the [`douya-labs/harmony-app-dev`](https://github.com/douya-labs/harmony-app-dev) AgentSkill. Stories, tips, showcase and the rest of the site live here.
+Reference docs (the `/docs/` section) are auto-synced from the [`douya-labs/harmony-app-dev`](https://github.com/douya-labs/harmony-app-dev) AgentSkill. Insights, tips, showcase and the rest of the site live here.
 
 Built with [Astro Starlight](https://starlight.astro.build/) + Tailwind + MDX + Pagefind. Fully static — deployed via Cloudflare Pages.
 

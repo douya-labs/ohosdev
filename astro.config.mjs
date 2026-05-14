@@ -75,8 +75,8 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: '📖 Stories',
-          translations: { 'zh-CN': '📖 开发日记' },
+          label: '📖 Insights',
+          translations: { 'zh-CN': '📖 洞察' },
           autogenerate: { directory: 'stories' },
         },
         {
